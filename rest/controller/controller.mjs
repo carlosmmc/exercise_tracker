@@ -4,20 +4,9 @@ import Exercise from '../model/Exercise.mjs'
 import { updateHelper, generateFilter } from './helper.mjs'
 
 const create = async (req, res, next) => {
-    const newExercise = new Exercise(req.query)
-    const val = await newExercise.save()
-    res.send(val)
-}
-
-const update = async (req, res, next) => {
-    const { filter, update } = updateHelper(req.query)
-    const result = await Exercise.findOneAndUpdate(filter, update)
-
-    if (result !== null) {
-        res.send({ "modifiedCount": 1 })
-    } else {
-        res.send({ "Error": "Not found" })
-    }
+    const newExercise = new Exercise(req.body)
+    const resp = await newExercise.save()
+    res.status(200).send(resp)
 }
 
 const retrieve = async (req, res, next) => {
@@ -31,6 +20,18 @@ const retrieve = async (req, res, next) => {
     const result = await query.exec()
     res.send(result)
 }
+
+const update = async (req, res, next) => {
+    const { filter, update } = updateHelper(req.query)
+    const result = await Exercise.findOneAndUpdate(filter, update)
+
+    if (result !== null) {
+        res.send({ "modifiedCount": 1 })
+    } else {
+        res.send({ "Error": "Not found" })
+    }
+}
+
 
 const remove = async (req, res, next) => {
     const result = await Exercise.deleteMany(req.query)

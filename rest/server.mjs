@@ -15,11 +15,14 @@ const app = express()
 // connect to db
 mongoose.connect("mongodb://localhost:27017/exercises_db")
 
+// middleware
+app.use(express.json())
+
 // CRUD functionality
-app.get('/create', errorCatcher(createExercise))
-app.get('/retrieve', errorCatcher(retrieveExercise))
-app.get('/update/:id', errorCatcher(updateExercise))
-app.get('/delete/:id', errorCatcher(deleteExercise))
+app.post('/exercises', errorCatcher(createExercise))
+app.get('/exercises', errorCatcher(retrieveExercise))
+app.put('/exercises/:id', errorCatcher(updateExercise))
+app.delete('/exercises/:id', errorCatcher(deleteExercise))
 
 // error handling middleware
 app.use(errorHandler)
