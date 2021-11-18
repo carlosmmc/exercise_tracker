@@ -1,0 +1,16 @@
+{
+  "name": "martica4_assignment5",
+  "version": "1.0.0",
+  "description": "assignment 5 for CS 290",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "",
+    "start": "nodemon server.mjs"
+  },
+  "author": "martica4",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  }
+}
