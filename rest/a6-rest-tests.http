@@ -1,4 +1,4 @@
-# create requests - POST /exercises
+### create requests - POST /exercises
 POST http://localhost:3000/exercises HTTP/1.1
 content-type: application/json
 
@@ -10,8 +10,7 @@ content-type: application/json
     "date": "06-24-21"
 }
 
-
-# next request
+### create
 POST http://localhost:3000/exercises HTTP/1.1
 content-type: application/json
 
@@ -23,35 +22,38 @@ content-type: application/json
     "date": "01-01-93"
 }
 
-# POST http://localhost:3000/exercises HTTP/1.1
-# Content-Type: application/json
+### create
+POST http://localhost:3000/exercises HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "name": "Push ups",
-#     "reps": 3000,
-#     "weight": 1,
-#     "unit": "lbs",
-#     "date": "05-29-25",
-# }
+{
+    "name": "Push ups",
+    "reps": 3000,
+    "weight": 1,
+    "unit": "lbs",
+    "date": "05-29-25"
+}
 
-# # retrieve requests - GET /exercises
-# GET https://localhost:3000/exercises HTTP/1.1
+### retrieve requests - GET /exercises
+GET http://localhost:3000/exercises HTTP/1.1
 
-# # update requests - PUT /exercises/:id
-# PUT http://localhost:3000/exercises/987sdfasfdljk347387 HTTP/1.1
-# Content-Type: application/json
+### update requests - PUT /exercises/:id
+PUT http://localhost:3000/exercises/6196edfb57f2baaa79204235 HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "name": "Squatzzz",
-#     "reps": 100,
-#     "weight": 300,
-#     "unit": "kgs",
-#     "date": "11-25-12",
-# }
+{
+    "name": "8888",
+    "reps": 100,
+    "weight": 300,
+    "unit": "kgs",
+    "date": "11-25-12"
+}
 
-# # delete requests - DELETE /exercises/:id
-# DELETE http://localhost:3000/exercises/987sdfasfdljk347387 HTTP/1.1
+### delete requests - DELETE /exercises/:id
+DELETE http://localhost:3000/exercises/6196edfa57f2baaa79204233 HTTP/1.1
 
-# DELETE http://localhost:3000/exercises/987sdfasfdljk347387 HTTP/1.1
+###
+DELETE http://localhost:3000/exercises/6196edfb57f2baaa79204235 HTTP/1.1
 
-# DELETE http://localhost:3000/exercises/987sdfasfdljk347387 HTTP/1.1
+###
+DELETE http://localhost:3000/exercises/6196edfc57f2baaa79204237 HTTP/1.1
