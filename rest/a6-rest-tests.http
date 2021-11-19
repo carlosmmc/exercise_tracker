@@ -38,22 +38,22 @@ Content-Type: application/json
 GET http://localhost:3000/exercises HTTP/1.1
 
 ### update requests - PUT /exercises/:id
-PUT http://localhost:3000/exercises/6196edfb57f2baaa79204235 HTTP/1.1
+PUT http://localhost:3000/exercises/6197011a3a056d3937868fd0 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "8888",
-    "reps": 100,
-    "weight": 300,
+    "name": "big diccus squats",
+    "reps": 100000,
+    "weight": 300000,
     "unit": "kgs",
-    "date": "11-25-12"
+    "date": "11-26-12"
 }
 
 ### delete requests - DELETE /exercises/:id
-DELETE http://localhost:3000/exercises/6196edfa57f2baaa79204233 HTTP/1.1
+DELETE http://localhost:3000/exercises/6197011a3a056d3937868fd0 HTTP/1.1
 
 ###
-DELETE http://localhost:3000/exercises/6196edfb57f2baaa79204235 HTTP/1.1
+DELETE http://localhost:3000/exercises/6197012a3a056d3937868fd2 HTTP/1.1
 
 ###
-DELETE http://localhost:3000/exercises/6196edfc57f2baaa79204237 HTTP/1.1
+DELETE http://localhost:3000/exercises/619701313a056d3937868fd4 HTTP/1.1

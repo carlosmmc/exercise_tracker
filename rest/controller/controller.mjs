@@ -31,7 +31,6 @@ const remove = async (req, res, next) => {
     const { id } = req.params
     const result = await Exercise.findByIdAndDelete(id)
 
-
     res.status(204).send(result)
 }
 
