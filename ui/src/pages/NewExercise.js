@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AddExercise from '../components/AddExercise';
+import ManipulateData from '../components/Manipulate';
 
 function NewExercise() {
-    const stores = {}
-
     return (
         <>
-            <AddExercise />
+            <ManipulateData />
         </>
     );
 }

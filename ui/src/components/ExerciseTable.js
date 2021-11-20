@@ -1,7 +1,7 @@
 import React from 'react';
-import ExerciseRow from './ExerciseRow';
+import DataRow from './DataRow';
 
-function ExerciseTable({ items }) {
+function DataTable({ items, deleteData }) {
     return (
         <table>
             <thead>
@@ -16,10 +16,10 @@ function ExerciseTable({ items }) {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item, i) => <ExerciseRow item={item} key={i} />)}
+                {items.map((item, i) => <DataRow item={item} key={i} deleteData={deleteData} />)}
             </tbody>
         </table>
     )
 }
 
-export default ExerciseTable
+export default DataTable

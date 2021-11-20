@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function AddExercise() {
-    const [name, setName] = useState('')
-    const [reps, setReps] = useState('')
-    const [weight, setWeight] = useState('')
-    const [date, setDate] = useState('')
+function ManipulateData({ startingVals = {}, mode = 'add' }) {
+    const [name, setName] = useState(startingVals.name)
+    const [reps, setReps] = useState(startingVals.reps)
+    const [weight, setWeight] = useState(startingVals.weight)
+    const [date, setDate] = useState(startingVals.date)
+    const [unit, setUnit] = useState(startingVals.unit)
+
     const history = useHistory()
 
     const submitEntry = async () => {
-        const unit = document.getElementById("unit").value;
         const entry = { name, reps, weight, 'unit': unit, date }
         const response = await fetch('/exercises', {
             method: 'POST',
@@ -43,10 +44,7 @@ function AddExercise() {
                 <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
 
                 <label for="unit">Unit</label>
-                <select name="unit" id="unit">
-                    <option value="kgs">Kilograms</option>
-                    <option value="lbs">Pounds</option>
-                </select>
+                <input type="text" id="unit" value={unit} onChange={e => setUnit(e.target.value)} />
 
                 <label for="date">Date</label>
                 <input type="text" id="date" value={date} onChange={e => setDate(e.target.value)} />
@@ -54,12 +52,17 @@ function AddExercise() {
             </fieldset>
 
             <button onClick={e => {
-                submitEntry()
-                e.preventDefault()
+                if (mode === 'add') {
+                    submitEntry()
+                    e.preventDefault()
+                } else {
+                    alert('yeet BOIS in this boiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+                    e.preventDefault()
+                }
             }}>Submit</button>
 
         </form>
     )
 }
 
-export default AddExercise
+export default ManipulateData
