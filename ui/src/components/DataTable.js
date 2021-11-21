@@ -2,6 +2,14 @@ import React from 'react';
 import DataRow from './DataRow';
 
 function DataTable({ items, onDelete, onEdit }) {
+    const defaultRow = () => {
+        return <tr><td colspan="7">No exercises added</td></tr>
+    }
+
+    const displayData = (items) => {
+        return items.map((item, k) => <DataRow item={item} key={k} onDelete={onDelete} onEdit={onEdit} />)
+    }
+
     return (
         <table>
             <thead>
@@ -17,7 +25,7 @@ function DataTable({ items, onDelete, onEdit }) {
             </thead>
 
             <tbody>
-                {items.map((item, k) => <DataRow item={item} key={k} onDelete={onDelete} onEdit={onEdit} />)}
+                {items.length !== 0 ? displayData(items) : defaultRow()}
             </tbody>
         </table>
     )
