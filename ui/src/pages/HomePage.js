@@ -4,8 +4,6 @@ import DataTable from '../components/ExerciseTable';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-
-
 const HomePage = ({ setExerciseToEdit }) => {
     const history = useHistory()
     const [exercises, setExercises] = useState([])
