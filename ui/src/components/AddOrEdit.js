@@ -6,13 +6,12 @@ function AddOrEdit({ mode, seedData = {} }) {
     const [reps, setReps] = useState(seedData.reps)
     const [weight, setWeight] = useState(seedData.weight)
     const [date, setDate] = useState(seedData.date)
-    const [unit, setUnit] = useState(seedData.unit)
+    const [unit, setUnit] = useState(mode === 'add' ? 'lbs' : seedData.unit)
 
     const history = useHistory()
 
     const submitChanges = async (method, path, successCode) => {
-        const unit = document.getElementById("unit").value;
-        const entry = { name, reps, weight, 'unit': unit, date }
+        const entry = { name, reps, weight, unit, date }
         const response = await fetch(path, {
             method: method,
             body: JSON.stringify(entry),
@@ -44,7 +43,7 @@ function AddOrEdit({ mode, seedData = {} }) {
                 <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
 
                 <label for="unit">Unit</label>
-                <select name="unit" id="unit" defaultValue={unit}>
+                <select name="unit" id="unit" defaultValue={unit} onChange={e => setUnit(e.target.value)}>
                     <option value="lbs">Pounds</option>
                     <option value="kgs">Kilograms</option>
                 </select>
