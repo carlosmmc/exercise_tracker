@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import { GiWeightLiftingUp } from "react-icons/gi";
 
 function AddOrEdit({ mode, seedData = {} }) {
     const [name, setName] = useState(seedData.name)
@@ -30,38 +30,47 @@ function AddOrEdit({ mode, seedData = {} }) {
 
     return (
         <form>
-            <legend> {mode === 'add' ? 'Add Exercise' : 'Edit Exercise'} </legend>
 
-            <fieldset>
+            <h2 class="formHeader"> {mode === 'add' ? 'Add Exercise' : 'Edit Exercise'} </h2>
+            <ul class="form">
 
-                <label for="name">Name</label>
-                <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
+                <li>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
+                </li>
 
-                <label for="reps">Reps</label>
-                <input type="number" id="reps" value={reps} onChange={e => setReps(e.target.value)} />
+                <li>
+                    <label for="reps">Reps</label>
+                    <input type="number" id="reps" value={reps} onChange={e => setReps(e.target.value)} />
+                </li>
 
-                <label for="weight">Weight</label>
-                <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
+                <li>
+                    <label for="weight">Weight</label>
+                    <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
+                </li>
 
-                <label for="unit">Unit</label>
-                <select name="unit" id="unit" defaultValue={unit} onChange={e => setUnit(e.target.value)}>
-                    <option value="lbs">Pounds</option>
-                    <option value="kgs">Kilograms</option>
-                </select>
+                <li>
+                    <label for="unit">Unit</label>
+                    <select name="unit" id="unit" defaultValue={unit} onChange={e => setUnit(e.target.value)}>
+                        <option value="lbs">Pounds</option>
+                        <option value="kgs">Kilograms</option>
+                    </select>
+                </li>
 
-                <label for="date">Date</label>
-                <input type="text" id="date" value={date} onChange={e => setDate(e.target.value)} />
+                <li>
+                    <label for="date">Date</label>
+                    <input type="text" id="date" value={date} onChange={e => setDate(e.target.value)} />
+                </li>
 
-            </fieldset>
-
-            <button onClick={e => {
-                if (mode === 'add') {
-                    submitChanges('POST', '/exercises', 201)
-                } else if (mode === 'edit') {
-                    submitChanges('PUT', `/exercises/${seedData._id}`, 200)
-                }
-                e.preventDefault()
-            }}>Submit</button>
+                <button onClick={e => {
+                    if (mode === 'add') {
+                        submitChanges('POST', '/exercises', 201)
+                    } else if (mode === 'edit') {
+                        submitChanges('PUT', `/exercises/${seedData._id}`, 200)
+                    }
+                    e.preventDefault()
+                }}>Submit</button>
+            </ul>
 
         </form>
     )

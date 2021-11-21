@@ -95,19 +95,50 @@ tbody tr:nth-child(odd) {
   color: black;
 }
 
-/* button {
-  font-family: 'Creepster', sans-serif;
+.formHeader {
+  font-size: 2rem;
+  margin: 0;
+  color: black;
+}
+
+.form {
+  margin:10px auto;
+	max-width: 300px;
+	padding: 10px 12px 15px 20px;
+  background-color: #416e77;
+  border-radius: 2em;
+}
+
+.form li {
+  padding: 0;
+	list-style: none;
+	margin: 2px 0 0 0;
+}
+
+.form label{
+  margin:0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+
+.form input, select{
+	padding: 7px;
+}
+
+.form button {
+  font-family: 'Roboto', sans-serif;
   color: white;
-  background-color: rgb(160, 0, 0);
+  background-color: #eb547a;
   letter-spacing: 2px;
   border-radius: 2em;
-  padding: .4em 1.4em;
+  padding: .4em .8em;
   border: 0px;
   font-size: medium;
   transition: all .5s;
-  margin-bottom: 2rem;
+  margin-top: 15px;
 }
 
-button:hover {
-  background-color:black;
-} */
+.form button:hover {
+  background-color:#ff0040;
+}
