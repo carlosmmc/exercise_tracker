@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ManipulateData from '../components/Manipulate';
 
-function ModifyPage({ exercisetoEdit }) {
+function CreatePage() {
     return (
         <>
-            <ManipulateData startingVals={exercisetoEdit} mode='edit' />
+            <ManipulateData mode='add' />
         </>
     );
 }
 
-export default ModifyPage;
+export default CreatePage;

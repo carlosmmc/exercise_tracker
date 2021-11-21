@@ -2,12 +2,11 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import CreatePage from './pages/Create';
 import ModifyPage from './pages/Modify';
 
 function App() {
   const [exercisetoEdit, setExerciseToEdit] = useState([])
-  const [mode, setMode] = useState([])
-
 
   return (
     <div className="App">
@@ -15,11 +14,15 @@ function App() {
         <Router>
 
           <Route path="/" exact>
-            <HomePage setExerciseToEdit={setExerciseToEdit} setMode={setMode} />
+            <HomePage setExerciseToEdit={setExerciseToEdit} />
           </Route>
 
-          <Route path="/modifyExercise">
-            <ModifyPage exercisetoEdit={exercisetoEdit} mode={mode} />
+          <Route path="/create">
+            <CreatePage />
+          </Route>
+
+          <Route path="/edit">
+            <ModifyPage exercisetoEdit={exercisetoEdit} />
           </Route>
 
         </Router>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function ManipulateData({ startingVals, mode }) {
+function ManipulateData({ mode, startingVals = {} }) {
     const [name, setName] = useState(startingVals.name)
     const [reps, setReps] = useState(startingVals.reps)
     const [weight, setWeight] = useState(startingVals.weight)

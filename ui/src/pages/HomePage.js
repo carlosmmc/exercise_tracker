@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-const HomePage = ({ setExerciseToEdit, setMode }) => {
+const HomePage = ({ setExerciseToEdit }) => {
     const history = useHistory()
     const [exercises, setExercises] = useState([])
 
@@ -26,10 +26,9 @@ const HomePage = ({ setExerciseToEdit, setMode }) => {
         }
     }
 
-    const onEdit = async (exerciseToEdit, mode) => {
+    const onEdit = async exerciseToEdit => {
         setExerciseToEdit(exerciseToEdit)
-        setMode(mode)
-        history.push('/modifyExercise')
+        history.push('/edit')
     }
 
     useEffect(() => loadData(), [])
@@ -39,8 +38,7 @@ const HomePage = ({ setExerciseToEdit, setMode }) => {
             {/* <GiRaiseSkeleton size={90} /> */}
             <h1 class="home_h1">Exercise Tracker!</h1>
             <DataTable items={exercises} deleteData={deleteData} onEdit={onEdit} />
-            <Link className="App-link" to="/modifyExercise">Add exercise!</Link>
-            <button onClick={e => { onEdit({}, 'add') }}>Create exercise</button>
+            <Link className="App-link" to="/create">Add exercise!</Link>
         </>
     );
 }
