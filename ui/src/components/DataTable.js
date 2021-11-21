@@ -1,7 +1,7 @@
 import React from 'react';
 import DataRow from './DataRow';
 
-function DataTable({ items, deleteData, onEdit }) {
+function DataTable({ items, onDelete, onEdit }) {
     return (
         <table>
             <thead>
@@ -15,8 +15,9 @@ function DataTable({ items, deleteData, onEdit }) {
                     <th>Delete</th>
                 </tr>
             </thead>
+
             <tbody>
-                {items.map((item, i) => <DataRow item={item} key={i} deleteData={deleteData} onEdit={onEdit} />)}
+                {items.map((item, k) => <DataRow item={item} key={k} onDelete={onDelete} onEdit={onEdit} />)}
             </tbody>
         </table>
     )

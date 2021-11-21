@@ -1,12 +1,12 @@
 import React from 'react';
 import AddOrEdit from '../components/AddOrEdit';
 
-function CreatePage() {
+function ModifyPage({ toEdit }) {
     return (
         <>
-            <AddOrEdit mode='add' />
+            <AddOrEdit seedData={toEdit} mode='edit' />
         </>
     );
 }
 
-export default CreatePage;
+export default ModifyPage;

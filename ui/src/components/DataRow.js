@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdModeEdit, MdDeleteForever } from 'react-icons/md'
 
-function Row({ item, deleteData, onEdit }) {
+function Row({ item, onDelete, onEdit }) {
     return (
         <tr>
             <td>{item.name}</td>
@@ -10,7 +10,7 @@ function Row({ item, deleteData, onEdit }) {
             <td>{item.unit}</td>
             <td>{item.date}</td>
             <td><MdModeEdit onClick={() => onEdit(item, 'edit')} /></td>
-            <td><MdDeleteForever onClick={() => deleteData(item._id)} /></td>
+            <td><MdDeleteForever onClick={() => onDelete(item._id)} /></td>
         </tr>
     )
 }

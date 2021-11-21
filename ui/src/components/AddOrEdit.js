@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function ManipulateData({ mode, startingVals = {} }) {
-    const [name, setName] = useState(startingVals.name)
-    const [reps, setReps] = useState(startingVals.reps)
-    const [weight, setWeight] = useState(startingVals.weight)
-    const [date, setDate] = useState(startingVals.date)
-    const [unit, setUnit] = useState(startingVals.unit)
+function AddOrEdit({ mode, seedData = {} }) {
+    const [name, setName] = useState(seedData.name)
+    const [reps, setReps] = useState(seedData.reps)
+    const [weight, setWeight] = useState(seedData.weight)
+    const [date, setDate] = useState(seedData.date)
+    const [unit, setUnit] = useState(seedData.unit)
+
     const history = useHistory()
 
-    const submitEntry = async (method, path, successCode) => {
+    const submitChanges = async (method, path, successCode) => {
         const entry = { name, reps, weight, 'unit': unit, date }
         const response = await fetch(path, {
             method: method,
             body: JSON.stringify(entry),
-            headers: {
-                'Content-Type': 'application/json',
-            }
+            headers: { 'Content-Type': 'application/json' }
         })
 
         if (response.status === successCode) {
@@ -24,6 +23,7 @@ function ManipulateData({ mode, startingVals = {} }) {
         } else {
             alert(`Failed to ${mode} exercise, the status code of the request was ${response.status}.`)
         }
+
         history.push('/')
     }
 
@@ -52,9 +52,9 @@ function ManipulateData({ mode, startingVals = {} }) {
 
             <button onClick={e => {
                 if (mode === 'add') {
-                    submitEntry('POST', '/exercises', 201)
+                    submitChanges('POST', '/exercises', 201)
                 } else if (mode === 'edit') {
-                    submitEntry('PUT', `/exercises/${startingVals._id}`, 200)
+                    submitChanges('PUT', `/exercises/${seedData._id}`, 200)
                 }
                 e.preventDefault()
             }}>Submit</button>
@@ -63,4 +63,4 @@ function ManipulateData({ mode, startingVals = {} }) {
     )
 }
 
-export default ManipulateData
+export default AddOrEdit
