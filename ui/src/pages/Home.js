@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import DataTable from '../components/DataTable';
+import { AiFillPlusCircle } from "react-icons/ai";
 
 const HomePage = ({ setToEdit }) => {
     const [exercises, setExercises] = useState([])
@@ -33,9 +34,11 @@ const HomePage = ({ setToEdit }) => {
 
     return (
         <>
-            <h1 class="home_h1">Exercise Tracker!</h1>
+            <div id="tableHeader">
+                <h1 id="homeH1">Exercise Tracker</h1>
+                <Link id="createButton" to="/create"><AiFillPlusCircle style={{ color: 'black', height: '20px' }} />Add</Link>
+            </div>
             <DataTable items={exercises} onDelete={onDelete} onEdit={onEdit} />
-            <Link className="App-link" to="/create">Add exercise!</Link>
         </>
     );
 }

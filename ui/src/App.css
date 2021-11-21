@@ -1,20 +1,36 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(0, 0, 0);
   color: rgb(0, 0, 0);
-  margin: 2%;
-  padding: 0%;
+  margin: 4%;
 }
 
 h1, h2 {
-  font-family: 'Creepster', cursive;
-  color:rgb(214, 0, 0);
-  letter-spacing: 7px;
+  font-family: 'Black Ops One', cursive;
+  color: #1f7a8c;
+  letter-spacing: 5px;
+  font-size: 3.5rem;
 }
 
-.home_h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+#createButton {
+  float: right;
+  top: 30px;
+  position: relative;
+  color: black;
+  font-weight: 600;
+  background-color: #eb547a;
+  text-decoration: none;
+  border-radius: 2em;
+  padding: .01em .4em .01em .1em;
+  font-size: 1.5rem;
+}
+
+#homeH1 {
+  display: inline;
+}
+
+#tableHeader {
+  text-align: left;
+
 }
 
 .App {
@@ -23,42 +39,41 @@ h1, h2 {
 
 .App-header {
   background-color: white;
-  min-height: 96vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #01a0cc;
-  font-size: 1.2rem;
-  margin: .3rem;
-  font-family: 'Roboto', sans-serif;
-}
-
+/* table layout - this is so we can manually adjust column widths */
+/* border collapse - to get rid of weird double borders */
 table {
-  table-layout: fixed; /* this is so we can manually adjust column widths*/
-  border-collapse: collapse; /* to get rid of weird double borders*/
-  width: 95%;
+  table-layout: fixed;
+  border-collapse: collapse;
   border: 3px solid black;
   margin-bottom: 1rem;
   color: black;
 }
 
-/* thead th:nth-child(1) {
-  width: 40%;
-} */
+thead th:nth-child(1) {
+  width: 34%;
+}
 
-/* thead th:nth-child(2),
-thead th:nth-child(3) {
-  width: 30%;
-  border: 1px solid black;
-  color: white;
-} */
+thead th:nth-child(3),
+thead th:nth-child(5) {
+  width: 17%;
+}
 
-/* td {
+thead th:nth-child(2),
+thead th:nth-child(4),
+thead th:nth-child(6),
+thead th:nth-child(7) {
+  width: 8%;
+}
+
+td {
   padding: 12px;
   border: 1px solid black;
   color: black;
@@ -68,85 +83,19 @@ th {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
-  padding: 14px;
+  padding: 13px;
   color: white;
   background: rgb(53, 54, 53);
   border: 1px solid black;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: rgb(236, 236, 236);
+  background-color: #e0e0e0;
   border: 1px solid black;
   color: black;
-} */
-
-/* tr:hover {
-  background-color: rgb(250, 221, 221) !important;
-} */
-
-caption {
-  caption-side: bottom;
-  text-align: right;
-  font-style: italic;
-  font-size: 15px;
-  color: rgb(160, 0, 0);
-  padding-top: .3rem;
-  font-family: 'Creepster';
-  border-radius: 0px;
-  border-bottom: .3px dashed black;
-  width:max-content;
 }
 
-.ghouls {
-  margin: 0px 12px 0px 12px;
-  position: relative;
-  top: 3px
-}
-
-/* fieldset{
-  background-color: white;
-  color: black;
-  border: 0px;
-  border-top: 3px solid rgb(189, 188, 188);
-  font-family: 'Creepster', sans-serif;
-} */
-
-/* legend {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  letter-spacing: 5px;
-  color: black;
-} */
-
-/* label {
-  color: black;
-  font-family: 'Creepster', sans-serif;
-  letter-spacing: 1px;
-} */
-
-/* input {
-  background-color: white;
-  font-family: 'Creepster', sans-serif;
-  text-align: right;
-  color: rgb(160, 0, 0);
-  border: 0px;
-  border-bottom: 4px solid rgb(160, 0, 0);
-  width: 4.7rem;
-  font-size: 2rem;
-  text-align: center;
-  margin-left: 10px;
-} */
-
-/* input:focus {
-  outline: 0;
-} */
-
-/* select {
-  font-family: 'Roboto', sans-serif;
-  color: black;
-} */
-
-button {
+/* button {
   font-family: 'Creepster', sans-serif;
   color: white;
   background-color: rgb(160, 0, 0);
@@ -161,4 +110,4 @@ button {
 
 button:hover {
   background-color:black;
-}
+} */

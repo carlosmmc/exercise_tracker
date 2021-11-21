@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+
 function AddOrEdit({ mode, seedData = {} }) {
     const [name, setName] = useState(seedData.name)
     const [reps, setReps] = useState(seedData.reps)
@@ -36,7 +37,7 @@ function AddOrEdit({ mode, seedData = {} }) {
                 <label for="name">Name</label>
                 <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
 
-                <label for="reps"># Reps</label>
+                <label for="reps">Reps</label>
                 <input type="number" id="reps" value={reps} onChange={e => setReps(e.target.value)} />
 
                 <label for="weight">Weight</label>

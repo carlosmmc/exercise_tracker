@@ -7,7 +7,7 @@ function DataTable({ items, onDelete, onEdit }) {
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th># Reps</th>
+                    <th>Reps</th>
                     <th>Weight</th>
                     <th>Unit</th>
                     <th>Date</th>
