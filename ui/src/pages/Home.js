@@ -19,7 +19,8 @@ const HomePage = ({ setToEdit }) => {
         const response = await fetch(`/exercises/${_id}`, { method: 'DELETE' })
 
         if (response.status === 204) {
-            await onLoad()
+            const filteredData = exercises.filter(e => e._id !== _id)
+            setExercises(filteredData)
         } else {
             console.error(`Failed to delete exercise with _id = ${_id}, status code of ${response.status}.`)
         }
