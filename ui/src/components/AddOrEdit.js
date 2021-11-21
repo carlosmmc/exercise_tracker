@@ -11,6 +11,7 @@ function AddOrEdit({ mode, seedData = {} }) {
     const history = useHistory()
 
     const submitChanges = async (method, path, successCode) => {
+        const unit = document.getElementById("unit").value;
         const entry = { name, reps, weight, 'unit': unit, date }
         const response = await fetch(path, {
             method: method,
@@ -29,7 +30,7 @@ function AddOrEdit({ mode, seedData = {} }) {
 
     return (
         <form>
-            <legend> Excercise </legend>
+            <legend> {mode === 'add' ? 'Add Exercise' : 'Edit Exercise'} </legend>
 
             <fieldset>
 
@@ -43,7 +44,10 @@ function AddOrEdit({ mode, seedData = {} }) {
                 <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
 
                 <label for="unit">Unit</label>
-                <input type="text" id="unit" value={unit} onChange={e => setUnit(e.target.value)} />
+                <select name="unit" id="unit" defaultValue={unit}>
+                    <option value="lbs">Pounds</option>
+                    <option value="kgs">Kilograms</option>
+                </select>
 
                 <label for="date">Date</label>
                 <input type="text" id="date" value={date} onChange={e => setDate(e.target.value)} />
