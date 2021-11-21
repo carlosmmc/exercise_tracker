@@ -1,36 +1,35 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function ManipulateData({ startingVals = {}, mode = 'add' }) {
+function ManipulateData({ startingVals, mode }) {
     const [name, setName] = useState(startingVals.name)
     const [reps, setReps] = useState(startingVals.reps)
     const [weight, setWeight] = useState(startingVals.weight)
     const [date, setDate] = useState(startingVals.date)
     const [unit, setUnit] = useState(startingVals.unit)
-
     const history = useHistory()
 
-    const submitEntry = async () => {
+    const submitEntry = async (method, path, successCode) => {
         const entry = { name, reps, weight, 'unit': unit, date }
-        const response = await fetch('/exercises', {
-            method: 'POST',
+        const response = await fetch(path, {
+            method: method,
             body: JSON.stringify(entry),
             headers: {
                 'Content-Type': 'application/json',
             }
         })
 
-        if (response.status === 201) {
-            alert('Successfully added new exercise!')
+        if (response.status === successCode) {
+            alert(`Successful ${mode} operation completed!`)
         } else {
-            alert(`Failed to add exercise, the status code of the request was ${response.status}.`)
+            alert(`Failed to ${mode} exercise, the status code of the request was ${response.status}.`)
         }
         history.push('/')
     }
 
     return (
         <form>
-            <legend> Store Search </legend>
+            <legend> Excercise </legend>
 
             <fieldset>
 
@@ -53,12 +52,11 @@ function ManipulateData({ startingVals = {}, mode = 'add' }) {
 
             <button onClick={e => {
                 if (mode === 'add') {
-                    submitEntry()
-                    e.preventDefault()
-                } else {
-                    alert('yeet BOIS in this boiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
-                    e.preventDefault()
+                    submitEntry('POST', '/exercises', 201)
+                } else if (mode === 'edit') {
+                    submitEntry('PUT', `/exercises/${startingVals._id}`, 200)
                 }
+                e.preventDefault()
             }}>Submit</button>
 
         </form>

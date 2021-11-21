@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DataTable from '../components/ExerciseTable';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-const HomePage = () => {
+
+
+const HomePage = ({ setExerciseToEdit, setMode }) => {
+    const history = useHistory()
     const [exercises, setExercises] = useState([])
 
     const loadData = async () => {
@@ -22,14 +26,21 @@ const HomePage = () => {
         }
     }
 
+    const onEdit = async (exerciseToEdit, mode) => {
+        setExerciseToEdit(exerciseToEdit)
+        setMode(mode)
+        history.push('/modifyExercise')
+    }
+
     useEffect(() => loadData(), [])
 
     return (
         <>
             {/* <GiRaiseSkeleton size={90} /> */}
             <h1 class="home_h1">Exercise Tracker!</h1>
-            <DataTable items={exercises} deleteData={deleteData} />
-            <Link className="App-link" to="/createExercise">Add exercise!</Link>
+            <DataTable items={exercises} deleteData={deleteData} onEdit={onEdit} />
+            <Link className="App-link" to="/modifyExercise">Add exercise!</Link>
+            <button onClick={e => { onEdit({}, 'add') }}>Create exercise</button>
         </>
     );
 }
